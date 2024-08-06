@@ -8,9 +8,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
+
 datasource db {
   provider = "postgresql"
   url      = env("POSTGRESS_URI")
+  directUrl = env("POSTGRESS_DIRECT_URI")
 }
 model User {
   id       Int     @id @default(autoincrement())

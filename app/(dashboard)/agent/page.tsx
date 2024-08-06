@@ -5,7 +5,7 @@ import { useAllAgentFetch } from '@/hooks/agentHook';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { MoreHorizontal } from 'lucide-react';
+import { CirclePlus, MoreHorizontal } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 
@@ -14,21 +14,24 @@ import { Badge } from '@/components/ui/badge';
 const Page = () => {
   const { data, loading } = useAllAgentFetch();
 
-  
+
   if (loading) {
     return <div className='p-5 bg-white'>Loading...</div>;
-}
+  }
 
   return (
     <div className='p-5 min-h-screen'>
       <div className='border-b-2 border-slate-300 flex justify-between'>
 
-      <div className=' text-3xl  pb-8'>Agents</div>
-      <div className='gap-2 flex'>
-      <Link href='/agent/create' ><Button>Create New Agent</Button></Link>
-      <Link href='/call/create' ><Button variant={'secondary'}>Make a Call</Button></Link></div>
+        <div className=' text-3xl  pb-8'>Agents</div>
+        <div className='gap-2 flex'>
+          <Link href='/call/create' ><Button variant={'secondary'}>Make a Call</Button></Link></div>
       </div>
       <div className=" mt-4 rounded p-4 flex gap-2">
+        <Link href='/agent/create' title='Create New Agent'  className='flex justify-center items-center rounded w-full md:w-1/2 lg:w-1/4 p-3 min-h-[180px] text-xl h-full border  hover:border-blue-500  bg-white hover:text-blue-500'>
+          <CirclePlus size={64}/>
+        </Link>
+
         {data?.map((element, index) => (
           <div key={index} className='bg-white rounded w-full md:w-1/2 lg:w-1/4 p-3'>
             <div className='flex justify-between'>
@@ -59,11 +62,11 @@ const Page = () => {
               </DropdownMenu>
             </div>
             <div className='flex mt-10 gap-4'>
-            <span>{element.numberId}</span>
+              <span>{element.numberId}</span>
             </div>
             <div className='flex mt-2 gap-4'>
-            <Badge variant="default">{element.agentType}</Badge>
-            <span>{element.language}</span>
+              <Badge variant="default">{element.agentType}</Badge>
+              <span>{element.language}</span>
             </div>
           </div>
         ))}
