@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Behavior = ({ behavior, setBehavior }) => {
+const Behavior = ({ behavior, setBehavior }:{behavior:any,setBehavior:any}) => {
   const behaviors = ["Support Agent", "Sales Representative", "Lead Generation", "Appointment", "Custom"]
 
   return (

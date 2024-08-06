@@ -9,7 +9,7 @@ import React, { useMemo } from 'react';
 import { languages } from './data';
 import { Textarea } from '@/components/ui/textarea';
 
-const Config = ({ form }) => {
+const Config = ({ form }:{form:any}) => {
     const { number, numberLoader } = useNumberFetch();
     const { voice, voiceLoader } = useFetchVoice();
     const { vector, vectorLoader } = useVectorFetch();

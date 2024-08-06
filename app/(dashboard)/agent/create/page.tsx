@@ -27,7 +27,7 @@ const Page = () => {
     }
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = (data:any) => {
     alert(`Submitted! Data: ${JSON.stringify(data)}`)
   }
 
